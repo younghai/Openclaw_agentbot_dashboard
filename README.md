@@ -2,6 +2,9 @@
 
 Custom web dashboard for OpenClaw session / channel / usage monitoring.
 
+<img width="1469" height="1111" alt="Screenshot 2026-02-26 at 5 21 30 PM" src="https://github.com/user-attachments/assets/9596d08c-bcf7-4c82-81f1-88b8b9f074ac" />
+
+
 ## Structure
 - `server.js`: Express API server (port 3456)
 - `public/`: Frontend app (HTML, CSS, JS)
@@ -33,7 +36,7 @@ npm start
 ```
 
 The dashboard serves at:
-- `http://127.0.0.1:3456/`
+- `http://localhost:3456/`
 - API endpoints: `/api/health`, `/api/agents`, `/api/usage`, `/api/sessions`, `/api/logs`
 
 If you need port 3456 exposed safely from remote host, use SSH tunnel.
