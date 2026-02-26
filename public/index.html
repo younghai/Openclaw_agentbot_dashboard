@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw Agent Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="header-left">
+      <span class="logo">🦞</span>
+      <h1>OpenClaw Agent Dashboard</h1>
+    </div>
+    <div class="header-right">
+      <span class="server-info">ubuntu1 · 172.19.1.151</span>
+      <span class="status-dot" id="gwStatus"></span>
+      <span id="gwLabel">연결 중...</span>
+      <span class="clock" id="clock"></span>
+    </div>
+  </header>
+
+  <div class="main-grid">
+    <!-- Rooms -->
+    <div class="rooms-area">
+      <div class="room room-pm" id="room-agent1">
+        <div class="room-header">
+          <span class="room-title">기획실</span>
+          <span class="room-badge badge-pm">PM</span>
+        </div>
+        <div class="room-body">
+          <div class="agent-card">
+            <div class="avatar avatar-pm">
+              <div class="pixel-char c1"></div>
+            </div>
+            <div class="agent-name">♠️ Ace</div>
+            <div class="agent-model">gpt-5-mini</div>
+            <div class="status-bar"><div class="status-fill" id="bar-agent1"></div></div>
+            <div class="agent-status" id="status-agent1">대기</div>
+          </div>
+        </div>
+        <div class="room-tokens">
+          <span class="token-icon">🪙</span>
+          <span id="tokens-agent1">0</span> tokens
+        </div>
+      </div>
+
+      <div class="room room-fe" id="room-agent2">
+        <div class="room-header">
+          <span class="room-title">프론트실</span>
+          <span class="room-badge badge-fe">Frontend</span>
+        </div>
+        <div class="room-body">
+          <div class="agent-card">
+            <div class="avatar avatar-fe">
+              <div class="pixel-char c2"></div>
+            </div>
+            <div class="agent-name">⚡️ Zed</div>
+            <div class="agent-model">gpt-5-mini</div>
+            <div class="status-bar"><div class="status-fill" id="bar-agent2"></div></div>
+            <div class="agent-status" id="status-agent2">대기</div>
+          </div>
+        </div>
+        <div class="room-tokens">
+          <span class="token-icon">🪙</span>
+          <span id="tokens-agent2">0</span> tokens
+        </div>
+      </div>
+
+      <div class="room room-be" id="room-agent3">
+        <div class="room-header">
+          <span class="room-title">백엔드실</span>
+          <span class="room-badge badge-be">Backend</span>
+        </div>
+        <div class="room-body">
+          <div class="agent-card">
+            <div class="avatar avatar-be">
+              <div class="pixel-char c3"></div>
+            </div>
+            <div class="agent-name">🤖 Jarvis</div>
+            <div class="agent-model">gpt-5-mini</div>
+            <div class="status-bar"><div class="status-fill" id="bar-agent3"></div></div>
+            <div class="agent-status" id="status-agent3">대기</div>
+          </div>
+        </div>
+        <div class="room-tokens">
+          <span class="token-icon">🪙</span>
+          <span id="tokens-agent3">0</span> tokens
+        </div>
+      </div>
+
+      <div class="room room-qa" id="room-agent4">
+        <div class="room-header">
+          <span class="room-title">QA실</span>
+          <span class="room-badge badge-qa">QA</span>
+        </div>
+        <div class="room-body">
+          <div class="agent-card">
+            <div class="avatar avatar-qa">
+              <div class="pixel-char c4"></div>
+            </div>
+            <div class="agent-name">🔺 Volt</div>
+            <div class="agent-model">gpt-5-mini</div>
+            <div class="status-bar"><div class="status-fill" id="bar-agent4"></div></div>
+            <div class="agent-status" id="status-agent4">대기</div>
+          </div>
+        </div>
+        <div class="room-tokens">
+          <span class="token-icon">🪙</span>
+          <span id="tokens-agent4">0</span> tokens
+        </div>
+      </div>
+
+      <div class="room room-sup" id="room-agent5">
+        <div class="room-header">
+          <span class="room-title">서포트실</span>
+          <span class="room-badge badge-sup">Support</span>
+        </div>
+        <div class="room-body">
+          <div class="agent-card">
+            <div class="avatar avatar-sup">
+              <div class="pixel-char c5"></div>
+            </div>
+            <div class="agent-name">🌟 Nova</div>
+            <div class="agent-model">zai/glm-5</div>
+            <div class="status-bar"><div class="status-fill fill-glm" id="bar-agent5"></div></div>
+            <div class="agent-status" id="status-agent5">대기</div>
+          </div>
+        </div>
+        <div class="room-tokens">
+          <span class="token-icon">🪙</span>
+          <span id="tokens-agent5">0</span> tokens
+        </div>
+      </div>
+
+      <div class="room room-main" id="room-main">
+        <div class="room-header">
+          <span class="room-title">관제실</span>
+          <span class="room-badge badge-main">Main</span>
+        </div>
+        <div class="room-body">
+          <div class="agent-card">
+            <div class="avatar avatar-main">
+              <div class="pixel-char c0"></div>
+            </div>
+            <div class="agent-name">🦞 Main</div>
+            <div class="agent-model">gpt-5.3-codex</div>
+            <div class="status-bar"><div class="status-fill fill-main" id="bar-main"></div></div>
+            <div class="agent-status" id="status-main">대기</div>
+          </div>
+        </div>
+        <div class="room-tokens">
+          <span class="token-icon">🪙</span>
+          <span id="tokens-main">0</span> tokens
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Stats + Channels -->
+    <div class="side-panel">
+      <div class="panel-card cost-panel">
+        <h3>💰 비용 요약 (30일)</h3>
+        <div class="cost-grid">
+          <div class="cost-item">
+            <div class="cost-label">총 토큰</div>
+            <div class="cost-value" id="totalTokens">--</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">총 비용</div>
+            <div class="cost-value cost-usd" id="totalCost">--</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">입력</div>
+            <div class="cost-value" id="inputCost">--</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-label">출력</div>
+            <div class="cost-value" id="outputCost">--</div>
+          </div>
+        </div>
+        <div class="cost-chart" id="costChart"></div>
+      </div>
+
+      <div class="panel-card channels-panel">
+        <h3>📡 채널 상태</h3>
+        <div class="channel-list" id="channelList"></div>
+      </div>
+
+      <div class="panel-card system-panel">
+        <h3>🖥️ 서버</h3>
+        <div class="sys-grid">
+          <div class="sys-item"><span>CPU</span><span>96 cores</span></div>
+          <div class="sys-item"><span>RAM</span><span>503 GB</span></div>
+          <div class="sys-item"><span>Disk</span><span>64 GB free</span></div>
+          <div class="sys-item"><span>OS</span><span>Ubuntu 24.04</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Log Timeline -->
+  <div class="log-panel">
+    <div class="log-header">
+      <h3>📜 이벤트 타임라인</h3>
+      <span class="log-count" id="logCount">0건</span>
+    </div>
+    <div class="log-table">
+      <div class="log-row log-header-row">
+        <span class="log-col col-time">시간</span>
+        <span class="log-col col-agent">에이전트</span>
+        <span class="log-col col-event">이벤트</span>
+        <span class="log-col col-msg">메시지</span>
+      </div>
+      <div id="logBody"></div>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
